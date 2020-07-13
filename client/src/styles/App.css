@@ -1,0 +1,22 @@
+body {
+    background-color: #14171C;
+    color: aliceblue;
+}
+
+#main_title {
+    position: absolute;
+    left: 50%;
+    font-family: roboto;
+    color: #8B440C;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+}
+
+#div_spacer {
+    margin-bottom: 5em;
+}
+
+#eye {
+    width: 1.5m;
+    height: 1.5em;
+}
