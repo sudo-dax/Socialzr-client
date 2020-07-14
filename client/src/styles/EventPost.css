@@ -1,11 +1,14 @@
+
+
 h1 {
     color: #E8E6E3;
     padding: 1rem;
 
 }
 .post {
-    margin: 3rem 0;
-    padding: 0;
+    background: rgb(68, 55, 55, 0.6);
+    margin: 3rem 26px;
+    padding: .2em;
     border: 1px solid #ccc;
 }
 
