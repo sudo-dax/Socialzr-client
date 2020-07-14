@@ -1,3 +1,17 @@
 h1 {
     color: #E8E6E3;
+    padding: 1rem;
+
+}
+.post {
+    margin: 3rem 0;
+    padding: 0;
+    border: 1px solid #ccc;
+}
+
+p {
+    position: relative;
+    margin-left: 4%;
+    margin-right:4%;
+    padding: 0.3rem;
 }
