@@ -16,7 +16,7 @@ const EventPost = ({post}) => {
     const {title, modified_date, category, content} = post 
 
     return (
-        <div>
+        <div class="post">
             <Link style={linkStyles} to={`/posts/${post._id}`}>
                 <h1>{title}</h1>
             </Link>

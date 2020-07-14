@@ -1,0 +1,24 @@
+.divStyles {
+    display: grid;
+    width: 100vw;
+}
+
+.inputStyles {
+    width: 70vw;
+    margin: .5em;
+}
+
+.labelStyles {
+    font-size: 1.2em;
+}
+
+.textAreaStyles {
+    height: 200px;
+    margin: .5em;
+    width: 70vw;
+}
+
+#Cat {
+    margin: 0.5em;
+    width: 20vw;
+}
