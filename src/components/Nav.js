@@ -16,7 +16,7 @@ const Nav = () => {
     return (
         <div id={divStyles}>
             <Link style={linkStyles} to="/">Home</Link>
-            <Link style={linkStyles} to="/posts/new">Add an Event</Link>
+            <Link style={linkStyles} to="/posts/new">Create an Event</Link>
         </div>
     )
 }

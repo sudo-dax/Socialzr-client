@@ -3,6 +3,7 @@
 h1 {
     color: #E8E6E3;
     padding: 1rem;
+    font-family: 'Roboto' sans-serif;
 
 }
 .post {
@@ -10,6 +11,7 @@ h1 {
     margin: 3rem 26px;
     padding: .2em;
     border: 1px solid #ccc;
+    font-family: 'Roboto' sans-serif;
 }
 
 p {
@@ -17,4 +19,5 @@ p {
     margin-left: 4%;
     margin-right:4%;
     padding: 0.3rem;
+    font-family: 'Roboto' sans-serif;
 }

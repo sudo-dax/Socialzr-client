@@ -1,22 +1,33 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
 body {
-    background-color: #14171C;
-    color: aliceblue;
+    background-color: white;
+    color: black;
 }
 
-#main_title {
+/* #main_title {
     position: absolute;
     left: 50%;
     font-family: roboto;
     color: #8B440C;
     border-bottom-width: 3px;
     border-bottom-style: solid;
+} */
+
+#main-title {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: black;
 }
 
 #div_spacer {
     margin-bottom: 10em;
 }
 
-#eye {
+/* #eye {
     width: 1.5m;
     height: 1.5em;
-}
+} */
