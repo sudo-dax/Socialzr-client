@@ -1,7 +1,5 @@
-
-
 h1 {
-    color: #E8E6E3;
+    color: #faf8f5;
     padding: 1rem;
 
 }
@@ -12,9 +10,20 @@ h1 {
     border: 1px solid #ccc;
 }
 
+.postLinkStyles {
+    text-decoration: none;
+    color: #faf8f5;
+
+}
+
 p {
     position: relative;
     margin-left: 4%;
     margin-right:4%;
     padding: 0.3rem;
+}
+
+#noPost {
+    position: relative;
+    left: 44%;
 }

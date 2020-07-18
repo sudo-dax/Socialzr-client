@@ -1,3 +1,5 @@
+# Welcome to SocialZr
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the basic template.
 
 ## What's in the basic template?

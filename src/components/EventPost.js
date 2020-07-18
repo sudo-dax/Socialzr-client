@@ -6,23 +6,19 @@ import '../styles/EventPost.css'
 const EventPost = ({post}) => {
 
     // If we don't have a post, return null
-    if (!post) return <p>There is no event listing with that ID</p>
+    if (!post) return <div id="noPost"><p>There is no event listing with that ID</p></div>
 
-    const linkStyles = {
-        textDecoration: 'none',
-        color: 'black' 
-	}
-
-    const {title, modified_date, category, content} = post 
+    const {title, modified_date, location, category, content} = post 
 
     return (
         <div class="post">
-            <Link style={linkStyles} to={`/posts/${post._id}`}>
+            <Link className="postLinkStyles" to={`/posts/${post._id}`}>
                 <h1>{title}</h1>
+                <p>{modified_date.toLocaleString()}</p>
+                <p>{category}</p>
+                <p>{location}</p>
+                <p>{content}</p>
             </Link>
-			<p>{modified_date.toLocaleString()}</p>
-			<p>{category}</p>
-			<p>{content}</p>
         </div>
     )
 }
