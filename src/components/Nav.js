@@ -6,9 +6,10 @@ import '../styles/Nav.css'
 const Nav = () => {
 
     return (
-        <div id="divStyles">
-            <Link className="linkStyles" to="/">Home</Link>
-            <Link className="linkStyles" to="/posts/new">Add an Event</Link>
+
+        <div id={divStyles}>
+            <Link style={linkStyles} to="/">Home</Link>
+            <Link style={linkStyles} to="/posts/new">Create an Event</Link>
         </div>
     )
 }
