@@ -19,7 +19,7 @@ const App = () => {
 
   function getPostFromId (id) {
     // console.log(eventPosts)
-    return eventPosts.find((post) => post._id == id )
+    return eventPosts.find((post) => post._id === id )
   }
 
 

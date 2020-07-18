@@ -37,10 +37,10 @@ const NewEventPost = ({history, addEventPost, nextId}) => {
 
     const [formState,setFormState] = useState(initialFormState)
 
-    function handleChange(event) {
-        const name = event.target.name
-        const value = event.target.value
-    }
+    // function handleChange(event) {
+    //     const name = event.target.name
+    //     const value = event.target.value
+    // }
 
     return (
         <form id="newPostForm" onSubmit={handleSubmit}>
