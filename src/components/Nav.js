@@ -14,7 +14,7 @@ const Nav = () => {
         margin: '.5em'
     }
     return (
-        <div id="divStyles">
+        <div id={divStyles}>
             <Link style={linkStyles} to="/">Home</Link>
             <Link style={linkStyles} to="/posts/new">Add an Event</Link>
         </div>
