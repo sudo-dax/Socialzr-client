@@ -5,7 +5,6 @@ import EventPosts from './components/EventPosts'
 import eventData from './data/post_data'
 import EventPost from './components/EventPost'
 import NewEventPost from './components/NewEventPost'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './styles/App.css'
 
@@ -20,7 +19,7 @@ const App = () => {
 
   function getPostFromId (id) {
     // console.log(eventPosts)
-    return eventPosts.find((post) => post._id === id )
+    return eventPosts.find((post) => post._id == id )
   }
 
 
@@ -29,9 +28,7 @@ const App = () => {
       <BrowserRouter>
         <Nav />
         <div id="div_spacer">
-
-          <h1 id="main-title">Socialzr</h1>
-
+          <h1 id="main_title">Social<span><img id="eye" src='https://www.kindpng.com/picc/b/158-1589280_blue-eyes-png.png' alt="i" /></span>Zr</h1>
         </div>
       <Switch>
         <Route exact path="/" render={(props) => <EventPosts {...props} eventData={eventPosts} /> } />
