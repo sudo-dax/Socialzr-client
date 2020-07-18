@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Nav from './components/Nav'
 import EventPosts from './components/EventPosts'
 import eventData from './data/post_data'
@@ -29,13 +29,15 @@ const App = () => {
       <BrowserRouter>
         <Nav />
         <div id="div_spacer">
+
           <h1 id="main-title">Socialzr</h1>
-          {/* <h1 id="main_title">Social<span><img id="eye" src='https://www.kindpng.com/picc/b/158-1589280_blue-eyes-png.png' /></span>Zr</h1> */}
+
         </div>
-        
+      <Switch>
         <Route exact path="/" render={(props) => <EventPosts {...props} eventData={eventPosts} /> } />
-        <Route exact path="/posts/:id" render={(props) => <EventPost {...props} post={getPostFromId(props.match.params.id) } /> } /> 
         <Route exact path="/posts/new" render={() => <NewEventPost /> } />
+        <Route exact path="/posts/:id" render={(props) => <EventPost {...props} post={getPostFromId(props.match.params.id) } /> } /> 
+        </Switch>
       </BrowserRouter>
   </div>
   )
