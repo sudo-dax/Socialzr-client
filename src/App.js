@@ -8,35 +8,33 @@ import NewEventPost from './components/NewEventPost'
 
 import './styles/App.css'
 
-
 const App = () => {
   const [eventPosts, setEventposts] = useState([])
 
-  useEffect(()=> {
+  useEffect(() => {
     console.log(eventData)
     setEventposts(eventData)
   }, [])
 
   function getPostFromId (id) {
     // console.log(eventPosts)
-    return eventPosts.find((post) => post._id == id )
+    return eventPosts.find((post) => post._id === id)
   }
 
-
   return (
-    <div >
+    <div>
       <BrowserRouter>
         <Nav />
-        <div id="div_spacer">
-          <h1 id="main_title">Social<span><img id="eye" src='https://www.kindpng.com/picc/b/158-1589280_blue-eyes-png.png' alt="i" /></span>Zr</h1>
+        <div id='div_spacer'>
+          <h1 id='main_title'> SOCIALZR</h1>
         </div>
-      <Switch>
-        <Route exact path="/" render={(props) => <EventPosts {...props} eventData={eventPosts} /> } />
-        <Route exact path="/posts/new" render={() => <NewEventPost /> } />
-        <Route exact path="/posts/:id" render={(props) => <EventPost {...props} post={getPostFromId(props.match.params.id) } /> } /> 
+        <Switch>
+          <Route exact path='/' render={(props) => <EventPosts {...props} eventData={eventPosts} />} />
+          <Route exact path='/posts/new' render={() => <NewEventPost />} />
+          <Route exact path='/posts/:id' render={(props) => <EventPost {...props} post={getPostFromId(props.match.params.id)} />} />
         </Switch>
       </BrowserRouter>
-  </div>
+    </div>
   )
 }
 
