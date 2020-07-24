@@ -4,8 +4,8 @@
 }
 
 .linkStyles {
-    color: yellow;
-    background-color: rgb(22, 126, 13);
+    color: navy;
+    background-color: white;
     text-decoration: none;
     margin: .5em;
     padding: 5px;
@@ -17,6 +17,6 @@
 }
 
 .linkStyles:hover {
-    background-color: #929292;
+    background-color: lightskyblue
 }
 
