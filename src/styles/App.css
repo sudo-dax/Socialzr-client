@@ -1,12 +1,11 @@
-/* font-family: 'Montserrat', sans-serif;
-font-family: 'Noto Sans', sans-serif;
-font-family: 'Roboto', sans-serif; */
 
-.App {
-  text-align: center;
+body {
+
+    background-color: #14171C;
+    color: aliceblue;
 }
-
-.App-header {
+  
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -15,14 +14,7 @@ font-family: 'Roboto', sans-serif; */
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-body {
-    background-color: whitesmoke;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    margin: 20px;
-}
+} */
 
 
 #main_title {
