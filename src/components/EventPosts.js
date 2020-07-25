@@ -2,6 +2,7 @@ import React from 'react'
 import EventPost from './EventPost'
 import {useGlobalState} from '../config/store'
 
+
 const EventPosts = () => {
     const {store} = useGlobalState()
     const {eventPosts} = store

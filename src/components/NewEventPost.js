@@ -54,8 +54,6 @@ const NewEventPost = ({history}) => {
     const {store, dispatch} = useGlobalState()
     const {eventPosts} = store
 
-
-
     return (
         <form id="newPostForm" onSubmit={handleSubmit}>
             {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
@@ -64,33 +62,33 @@ const NewEventPost = ({history}) => {
                 <Input className="inputStyles" required type="text" name="title" placeholder="Enter a title" onChange={handleChange}></Input>
             </Block>
 
-            <div className="divStyles">
-                <label className="labelStyles">Category</label>
-                <select name="Cat" id="Cat">
-                    <option value="Festival">Festival</option>
-                    <option value="Party">Party</option>
-                    <option value="Event">Event</option>
-                </select>
-            </div>
+      <div className='divStyles'>
+        <label className='labelStyles'>Category</label>
+        <select name='Cat' id='Cat'>
+          <option value='Festival'>Festival</option>
+          <option value='Party'>Party</option>
+          <option value='Event'>Event</option>
+        </select>
+      </div>
 
-            <div className="divStyles">
-                <label className="labelStyles">Location</label>
-                <input className="inputStyles" required type="text" name="title" placeholder="Enter Event Location" onChange={handleChange}></input>
-            </div>
+      <div className='divStyles'>
+        <label className='labelStyles'>Location</label>
+        <input className='inputStyles' required type='text' name='title' placeholder='Enter Event Location' onChange={handleChange} />
+      </div>
 
-            <div className="divStyles">
-                <label className="labelStyles">Date</label>
-                <input className="inputStyles" required type="date" name="date" onChange={handleChange}></input>
-            </div>
+      <div className='divStyles'>
+        <label className='labelStyles'>Date</label>
+        <input className='inputStyles' required type='date' name='date' onChange={handleChange} />
+      </div>
 
-            <div className="divStyles">
-                <label className="labelStyles">Content</label>
-                <textarea form="newPostForm" required className="textAreaStyles" name="content" placeholder="Enter post here" onChange={handleChange}></textarea>
-            </div>
-            
-            <input type="submit" value="Add post"></input>
-        </form>
-    ) 
+      <div className='divStyles'>
+        <label className='labelStyles'>Content</label>
+        <textarea form='newPostForm' required className='textAreaStyles' name='content' placeholder='Enter post here' onChange={handleChange} />
+      </div>
+
+      <input type='submit' value='Add post' />
+    </form>
+  )
 }
 
 export default withRouter(NewEventPost)

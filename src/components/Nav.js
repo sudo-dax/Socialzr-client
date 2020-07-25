@@ -1,11 +1,12 @@
+
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {useGlobalState} from '../config/store'
 import {logoutUser} from '../services/authServices'
-
 import '../styles/Nav.css'
 
 const Nav = () => {
+
     // Logout user
     function handleLogout() {
         logoutUser().then((response) => {
@@ -44,3 +45,4 @@ const Nav = () => {
 
 
 export default Nav
+

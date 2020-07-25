@@ -15,8 +15,8 @@ import { userAuthenticated, getLoggedInUser, setLoggedInUser } from './services/
 
 import './styles/App.css'
 
-
 const App = () => {
+
 
     // initial state for state reducer
   const initialState = {
@@ -62,7 +62,6 @@ const App = () => {
     return () => {}
   },[])
 
-
   return (
     <div >
       <StateContext.Provider value={{store,dispatch}}>
@@ -76,12 +75,8 @@ const App = () => {
           <Route exact path="/events/:id" render={(props) => <EventPost {...props} post={getPostFromId(eventPosts,props.match.params.id)} showControls /> } />
           <Route exact path="/events/new" render={() => <NewEventPost /> } />
           <Route exact path="/events/edit/:id" component={EditEventPost} /> 
-        </Switch>
-          <Route exact path="/auth/login" component={SignIn} />
-          <Route exact path="/auth/register" component={Register} />
-      </BrowserRouter>
       </StateContext.Provider>
-  </div>
+    </div>
   )
 }
 
