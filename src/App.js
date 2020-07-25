@@ -68,13 +68,17 @@ const App = () => {
       <BrowserRouter>
         <Nav />
           <div id="div_spacer">
-            <h1 id="main_title">Social<span><img id="eye" src='https://www.kindpng.com/picc/b/158-1589280_blue-eyes-png.png' alt="i" /></span>Zr</h1>
+            <h1 id="main_title">SocialZr</h1>
           </div>
         <Switch>
-          <Route exact path="/" render={(props) => <EventPosts {...props} eventData={eventPosts} /> } />
-          <Route exact path="/events/:id" render={(props) => <EventPost {...props} post={getPostFromId(eventPosts,props.match.params.id)} showControls /> } />
-          <Route exact path="/events/new" render={() => <NewEventPost /> } />
-          <Route exact path="/events/edit/:id" component={EditEventPost} /> 
+            <Route exact path="/" render={(props) => <EventPosts {...props} eventData={eventPosts} /> } />
+            <Route exact path="/events/:id" render={(props) => <EventPost {...props} post={getPostFromId(eventPosts,props.match.params.id)} showControls /> } />
+            <Route exact path="/events/new" render={() => <NewEventPost /> } />
+            <Route exact path="/events/edit/:id" component={EditEventPost} /> 
+          </Switch> 
+          <Route exact path="/auth/login" component={SignIn} />
+          <Route exact path="/auth/register" component={Register} />
+        </BrowserRouter>
       </StateContext.Provider>
     </div>
   )
