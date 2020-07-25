@@ -31,3 +31,9 @@ p {
     position: relative;
     left: 44%;
 }
+
+.buttonStyles {
+    margin: .5em;
+    font-size: 1em;
+}
+
