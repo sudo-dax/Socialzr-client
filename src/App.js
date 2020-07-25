@@ -1,41 +1,86 @@
-import React, { useState, useEffect } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+// import eventData from './data/post_data'
 import Nav from './components/Nav'
 import EventPosts from './components/EventPosts'
-import eventData from './data/post_data'
 import EventPost from './components/EventPost'
 import NewEventPost from './components/NewEventPost'
+import EditEventPost from './components/EditEventPost'
+import SignIn from './components/SignIn'
+import Register from './components/Register'
+import stateReducer from './config/stateReducer'
+import {StateContext} from './config/store'
+import {getPostFromId, getAllEventPosts} from './services/eventPostServices'
+import { userAuthenticated, getLoggedInUser, setLoggedInUser } from './services/authServices'
 
 import './styles/App.css'
 
 
 const App = () => {
-  const [eventPosts, setEventposts] = useState([])
 
-  useEffect(()=> {
-    console.log(eventData)
-    setEventposts(eventData)
-  }, [])
-
-  function getPostFromId (id) {
-    // console.log(eventPosts)
-    return eventPosts.find((post) => post._id == id )
+    // initial state for state reducer
+  const initialState = {
+    eventPosts: [],
+    loggedInUser: null
   }
+  
+  function fetchEventPosts(){
+    getAllEventPosts().then((eventData) => {
+      dispatch({
+        type: "setEventPosts",
+        data: eventData
+      })
+    }).catch((error) => {
+      dispatch({
+        type: "setError",
+        data: false
+      })
+      console.log("An error occured fetching event posts from the server: ", error);
+    })
+  }
+  
+    // Create state reducer store and dispatcher
+    const [store, dispatch] = useReducer(stateReducer,initialState)
+    const {eventPosts, error} = store
+
+  useEffect(() => {
+    fetchEventPosts();
+    userAuthenticated().then(() => {
+      dispatch({
+        type: "setLoggedInUser",
+        data: getLoggedInUser()
+      })
+    }).catch((error) => {
+      console.log("got an error trying to check authenticated user: ", error)
+      setLoggedInUser(null)
+      dispatch({
+        type: "setLoggedInUser",
+        data: null
+      })
+    })
+    // A function that specifies anyactions on component unmount
+    return () => {}
+  },[])
 
 
   return (
     <div >
+      <StateContext.Provider value={{store,dispatch}}>
       <BrowserRouter>
         <Nav />
-        <div id="div_spacer">
-          <h1 id="main_title">Social<span><img id="eye" src='https://www.kindpng.com/picc/b/158-1589280_blue-eyes-png.png' alt="i" /></span>Zr</h1>
-        </div>
-      <Switch>
-        <Route exact path="/" render={(props) => <EventPosts {...props} eventData={eventPosts} /> } />
-        <Route exact path="/posts/new" render={() => <NewEventPost /> } />
-        <Route exact path="/posts/:id" render={(props) => <EventPost {...props} post={getPostFromId(props.match.params.id) } /> } /> 
+          <div id="div_spacer">
+            <h1 id="main_title">Social<span><img id="eye" src='https://www.kindpng.com/picc/b/158-1589280_blue-eyes-png.png' alt="i" /></span>Zr</h1>
+          </div>
+        <Switch>
+          <Route exact path="/" render={(props) => <EventPosts {...props} eventData={eventPosts} /> } />
+          <Route exact path="/events/:id" render={(props) => <EventPost {...props} post={getPostFromId(eventPosts,props.match.params.id)} showControls /> } />
+          <Route exact path="/events/new" render={() => <NewEventPost /> } />
+          <Route exact path="/events/edit/:id" component={EditEventPost} /> 
         </Switch>
+          <Route exact path="/auth/login" component={SignIn} />
+          <Route exact path="/auth/register" component={Register} />
       </BrowserRouter>
+      </StateContext.Provider>
   </div>
   )
 }
