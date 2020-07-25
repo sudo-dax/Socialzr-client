@@ -1,8 +1,11 @@
-import axios from 'axios'
 
-// Create an axios instance
-export default axios.create({
-  baseURL: 'https://socialzr-server.herokuapp.com/',
-  timeout: 10000,
-  withCredentials: true
-})
+import axios from 'axios'; 
+
+export default axios.create(
+    {
+        baseURL: 'http://localhost:3001',
+        timeout: 5000,
+        withCredentials: true
+    })
+
+

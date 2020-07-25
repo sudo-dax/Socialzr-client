@@ -1,11 +1,14 @@
-#divStyles {
+.divStyles {
     display: flex;
     justify-content: space-between;
 }
 
 .linkStyles {
-    color: navy;
-    background-color: white;
+
+    color: yellow;
+    font-size: '1.2em';
+    background-color: rgb(22, 126, 13);
+
     text-decoration: none;
     margin: .5em;
     padding: 5px;
