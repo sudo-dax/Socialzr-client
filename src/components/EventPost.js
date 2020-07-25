@@ -12,7 +12,7 @@ const EventPost = ({history, post, showControls}) => {
     console.log("got post: ", post)
     if (!post) return <div id="noPost"><p>There is no event listing with that ID</p></div>
 
-    const {title, location, category, description} = post 
+    const {title, organiser, location, category, description} = post 
 
     // Handle the delete button
     function handleDelete(event) {
@@ -35,7 +35,7 @@ const EventPost = ({history, post, showControls}) => {
         <div className="post">
             <Link className="postLinkStyles" to={`/events/${post._id}`}>
                 <h1>{title}</h1>
-                {/* <p>{modified_date.toLocaleString()}</p> */}
+                <p>{organiser}</p>
                 <p>{category}</p>
                 <p>{location}</p>
                 <p>{description}</p>

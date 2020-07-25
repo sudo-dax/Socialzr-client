@@ -40,8 +40,8 @@ const EditEventPost = ({history, match}) => {
             _id: post._id,
             title: formState.title,
             category: formState.category || "general",
-            modified_date: new Date(),
-            content: formState.content
+            // modified_date: new Date(),
+            description: formState.description
         }
         const otherPosts = eventPosts.filter((post) => post._id !== updatedPost._id)
         dispatch({
@@ -54,7 +54,7 @@ const EditEventPost = ({history, match}) => {
     const initialFormState = {
         title: "",
         category: "",
-        content: ""
+        description: ""
     } 
 
     const [formState,setFormState] = useState(initialFormState)
@@ -64,7 +64,7 @@ const EditEventPost = ({history, match}) => {
         post && setFormState({
             title: post.title,
             category: post.category,
-            content: post.content
+            description: post.description
         })
     },[post])
 
@@ -79,7 +79,7 @@ const EditEventPost = ({history, match}) => {
                 <input style={inputStyles} type="text" name="category" value={formState.category} onChange={handleChange}></input>
             </div>
             <div style={divStyles}>
-                <label style={labelStyles}>Content</label>
+                <label style={labelStyles}>Description</label>
                 <textarea form="editPostForm" required style={textAreaStyles} name="content" value={formState.content} onChange={handleChange}></textarea>
             </div>
             <input type="submit" value="Update post"></input>
