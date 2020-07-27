@@ -1,0 +1,22 @@
+#editPostForm {
+    
+}
+
+.divStyles {
+    display: grid;
+    width: 100vw;
+}
+
+.inputStyles {
+    width: 70vw;
+    margin: .5em;
+}
+.labelStyles {
+    fontSize: 1.2em;
+}
+
+.textAreaStyles {
+    height: 200px;
+    margin: .5em;
+    width: 70vw;
+}
