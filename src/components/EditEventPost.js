@@ -3,6 +3,8 @@ import {withRouter} from 'react-router-dom'
 import {useGlobalState} from '../config/store'
 import {getPostFromId} from '../services/eventPostServices'
 
+import '../styles/EditEventPost.css'
+
 const EditEventPost = ({history, match}) => {
 
     const {store, dispatch} = useGlobalState()
@@ -10,22 +12,7 @@ const EditEventPost = ({history, match}) => {
     const postId = match && match.params ? match.params.id : -1
     const post = getPostFromId(eventPosts, postId)
 
-    const divStyles = {
-        display: "grid",
-        width: "100vw"
-    }
-    const inputStyles = {
-        width: "70vw",
-        margin: ".5em"
-    }
-    const labelStyles = {
-        fontSize: "1.2em"
-    }
-    const textAreaStyles = {
-        height: "200px",
-        margin: ".5em",
-        width: "70vw"
-    }
+
     function handleChange(event) {
         const name = event.target.name
         const value = event.target.value
@@ -40,8 +27,10 @@ const EditEventPost = ({history, match}) => {
             _id: post._id,
             title: formState.title,
             category: formState.category || "general",
-            modified_date: new Date(),
-            content: formState.content
+            organiser: formState.organiser,
+            location: formState.location,
+            date: formState.date,
+            description: formState.description
         }
         const otherPosts = eventPosts.filter((post) => post._id !== updatedPost._id)
         dispatch({
@@ -54,7 +43,10 @@ const EditEventPost = ({history, match}) => {
     const initialFormState = {
         title: "",
         category: "",
-        content: ""
+        organiser: "",
+        location: "",
+        date: "",
+        description: ""
     } 
 
     const [formState,setFormState] = useState(initialFormState)
@@ -64,23 +56,47 @@ const EditEventPost = ({history, match}) => {
         post && setFormState({
             title: post.title,
             category: post.category,
-            content: post.content
+            organiser: "",
+            location: "",
+            date: "",
+            description: post.description
         })
     },[post])
 
     return (
         <form id="editPostForm" onSubmit={handleSubmit}>
-            <div style={divStyles}>
-                <label style={labelStyles}>Title</label>
-                <input style={inputStyles} required type="text" name="title" value={formState.title} onChange={handleChange}></input>
+            <div className="divStyles">
+                <label className="labelStyles">Title</label>
+                <input className="inputStyles" required type="text" name="title" value={formState.title} onChange={handleChange}></input>
             </div>
-            <div style={divStyles}>
-                <label style={labelStyles}>Category</label>
-                <input style={inputStyles} type="text" name="category" value={formState.category} onChange={handleChange}></input>
+
+            <div className='divStyles'>
+                <label className='labelStyles'>Category</label>
+                    <select name='Cat' id='Cat'>
+                        <option value='Festival'>Festival</option>
+                        <option value='Party'>Party</option>
+                        <option value='Event'>Event</option>
+                    </select>
             </div>
-            <div style={divStyles}>
-                <label style={labelStyles}>Content</label>
-                <textarea form="editPostForm" required style={textAreaStyles} name="content" value={formState.content} onChange={handleChange}></textarea>
+
+            <div className='divStyles'>
+                <label className='labelStyles'>Organiser</label>
+                <input className='inputStyles' required type='text' name='organiser' placeholder='Enter Event Organiser' onChange={handleChange} />
+            </div>
+
+            <div className='divStyles'>
+                <label className='labelStyles'>Location</label>
+                <input className='inputStyles' required type='text' name='location' placeholder='Enter Event Location' onChange={handleChange} />
+            </div>
+
+            <div className='divStyles'>
+                <label className='labelStyles'>Date</label>
+                <input className='inputStyles' required type='date' name='date' onChange={handleChange} />
+            </div>
+
+            <div className="divStyles">
+                <label className="labelStyles">Description</label>
+                <textarea form="editPostForm" required className="textAreaStyles" name="description" value={formState.description} onChange={handleChange}></textarea>
             </div>
             <input type="submit" value="Update post"></input>
         </form>

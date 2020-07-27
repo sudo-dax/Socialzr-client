@@ -4,13 +4,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Nav from './components/Nav'
 import EventPosts from './components/EventPosts'
 import EventPost from './components/EventPost'
-import NewEventPost from './components/NewEventPost'
 import EditEventPost from './components/EditEventPost'
+import NewEventPost from './components/NewEventPost'
 import SignIn from './components/SignIn'
 import Register from './components/Register'
 import stateReducer from './config/stateReducer'
 import {StateContext} from './config/store'
-import {getPostFromId, getAllEventPosts} from './services/eventPostServices'
+import {getPostFromId, getAllEventPosts, addEventPost} from './services/eventPostServices'
 import { userAuthenticated, getLoggedInUser, setLoggedInUser } from './services/authServices'
 
 import './styles/App.css'
@@ -73,8 +73,8 @@ const App = () => {
         <Switch>
             <Route exact path="/" render={(props) => <EventPosts {...props} eventData={eventPosts} /> } />
             <Route exact path="/events/:id" render={(props) => <EventPost {...props} post={getPostFromId(eventPosts,props.match.params.id)} showControls /> } />
-            <Route exact path="/events/new" render={() => <NewEventPost /> } />
             <Route exact path="/events/edit/:id" component={EditEventPost} /> 
+            <Route exact path="/events/new" render={(props) => <NewEventPost {...props} addEventPost={addEventPost} /> } />
           </Switch> 
           <Route exact path="/auth/login" component={SignIn} />
           <Route exact path="/auth/register" component={Register} />

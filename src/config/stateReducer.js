@@ -12,6 +12,11 @@ export default function (state, action) {
                 eventPosts: action.data
             }
         }
+        case "addEventPost":
+            return {
+                ...state,
+                eventPosts: [action.data, ...state.eventPosts]
+            }
         default: 
             return state
     }
