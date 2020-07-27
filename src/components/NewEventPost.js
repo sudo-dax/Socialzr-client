@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {withRouter} from 'react-router-dom'
 import { useGlobalState } from '../config/store'
 import {addEventPost} from '../services/eventPostServices'
-import {Block, Input, Label, ErrorText} from './StyledComponents'
+// import {Block, Input, Label, ErrorText} from './StyledComponents'
 
 import '../styles/NewEventPost.css'
 
@@ -43,6 +43,7 @@ const NewEventPost = ({history}) => {
           else
               setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
       })
+  // console.log(newPost)
   }
   // Initial State 
   const initialFormState = {
@@ -61,15 +62,20 @@ const NewEventPost = ({history}) => {
 
   return (
     <form id="newPostForm" onSubmit={handleSubmit}>
-        {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-        <Block className="divStyles">
-            <Label className="labelStyles">Event Title</Label>
-            <Input className="inputStyles" required type="text" name="title" placeholder="Enter a title" onChange={handleChange}></Input>
-        </Block>
+        {/* {errorMessage && <ErrorText>{errorMessage}</ErrorText>} */}
+        <div className="divStyles">
+            <p className="labelStyles">Event Title</p>
+            <input className="inputStyles" required type="text" name="title" placeholder="Enter a title" onChange={handleChange}></input>
+        </div>
+
+        <div className="divStyles">
+            <p className="labelStyles">Organiser</p>
+            <input className="inputStyles" required type="text" name="organiser" placeholder="Enter a title" onChange={handleChange}></input>
+        </div>
 
       <div className='divStyles'>
         <label className='labelStyles'>Category</label>
-          <select name='Cat' id='Cat'>
+          <select name='category' id='Cat'>
             <option value='Festival'>Festival</option>
             <option value='Party'>Party</option>
             <option value='Event'>Event</option>
@@ -78,7 +84,7 @@ const NewEventPost = ({history}) => {
 
       <div className='divStyles'>
         <label className='labelStyles'>Location</label>
-        <input className='inputStyles' required type='text' name='title' placeholder='Enter Event Location' onChange={handleChange} />
+        <input className='inputStyles' required type='text' name='location' placeholder='Enter Event Location' onChange={handleChange} />
       </div>
 
       <div className='divStyles'>
