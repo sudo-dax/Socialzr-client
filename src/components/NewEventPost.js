@@ -61,7 +61,8 @@ const NewEventPost = ({history}) => {
   const {eventPosts} = store
 
   return (
-    <form id="newPostForm" onSubmit={handleSubmit}>
+    <div className="eventPost-Container">
+<form id="newPostForm" onSubmit={handleSubmit}>
         {/* {errorMessage && <ErrorText>{errorMessage}</ErrorText>} */}
         <div className="divStyles">
             <p className="labelStyles">Event Title</p>
@@ -89,7 +90,7 @@ const NewEventPost = ({history}) => {
 
       <div className='divStyles'>
         <label className='labelStyles'>Date</label>
-        <input className='inputStyles' required type='date' name='date' onChange={handleChange} />
+        <input className='inputStyles date' required type='date' name='date' onChange={handleChange} />
       </div>
 
       <div className='divStyles'>
@@ -97,8 +98,9 @@ const NewEventPost = ({history}) => {
         <textarea form='newPostForm' required className='textAreaStyles' name='description' placeholder='Enter post here' onChange={handleChange} />
       </div>
 
-      <input type='submit' value='Add post' />
+      <input id="button" type='submit' value='Add post' />
     </form>
+    </div>
   )
 }
 
