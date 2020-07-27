@@ -37,7 +37,7 @@ const Nav = () => {
             }
             <div >
                 <Link className="linkStyles" to="/">Home</Link>
-                <Link className="linkStyles" to="/events/new">Add a post</Link>
+                <Link className="linkStyles" to="/new-event">Add a post</Link>
             </div>
         </div>
     )

@@ -74,7 +74,7 @@ const App = () => {
             <Route exact path="/" render={(props) => <EventPosts {...props} eventData={eventPosts} /> } />
             <Route exact path="/events/:id" render={(props) => <EventPost {...props} post={getPostFromId(eventPosts,props.match.params.id)} showControls /> } />
             <Route exact path="/events/edit/:id" component={EditEventPost} /> 
-            <Route exact path="/events/new" render={(props) => <NewEventPost {...props} addEventPost={addEventPost} /> } />
+            <Route exact path="/new-event" render={(props) => <NewEventPost {...props} addEventPost={addEventPost} /> } />
           </Switch> 
           <Route exact path="/auth/login" component={SignIn} />
           <Route exact path="/auth/register" component={Register} />
